@@ -26,7 +26,6 @@ namespace CompAndDel
             PipeSerial pipe1 = new PipeSerial(filterGreyscale, pipe2);
             
             finalpicture = pipe1.Send(picture);
-            provider.SavePicture(finalpicture, @$"{Environment.CurrentDirectory}\newluke.jpg");
         }
     }
 }
