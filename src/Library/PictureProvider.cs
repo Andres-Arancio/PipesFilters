@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -28,6 +29,7 @@ namespace CompAndDel
                     }
                 }
             }
+            picture.Path = path;
             return picture;
         }
 

@@ -10,6 +10,7 @@ namespace CompAndDel.Filters
         public IPicture Filter(IPicture image)
         {
             provider.SavePicture(image,pathGreyscale);
+            image.Path = pathGreyscale;
             return image;
         }
     }

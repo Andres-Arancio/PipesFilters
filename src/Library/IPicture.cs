@@ -10,6 +10,7 @@ namespace CompAndDel
     /// </summary>
     public interface IPicture
     {
+        string Path {get ; set ;}
         /// <summary>
         /// Retorna el ancho de la imagen.
         /// </summary>
