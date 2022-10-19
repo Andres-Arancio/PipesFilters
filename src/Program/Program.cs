@@ -18,10 +18,14 @@ namespace CompAndDel
             FilterGreyscale filterGreyscale = new FilterGreyscale();
             HistoryGreyscale historyGreyscale = new HistoryGreyscale();
             HistoryNegative historyNegative = new HistoryNegative();
+            TwitterSendGrey twittergrey = new TwitterSendGrey();
+            TwitterSendNegative twitternegative = new TwitterSendNegative();
 
             PipeNull pipeEND = new PipeNull();
-            PipeSerial pipe4 = new PipeSerial(historyNegative, pipeEND);
-            PipeSerial pipe3 = new PipeSerial(filterNegative, pipe4);
+            PipeSerial pipe6 = new PipeSerial(twitternegative, pipeEND);
+            PipeSerial pipe5 = new PipeSerial(historyNegative, pipe6);
+            PipeSerial pipe4 = new PipeSerial(filterNegative, pipe5);
+            PipeSerial pipe3 = new PipeSerial(twittergrey, pipe4);
             PipeSerial pipe2 = new PipeSerial(historyGreyscale, pipe3);
             PipeSerial pipe1 = new PipeSerial(filterGreyscale, pipe2);
             
