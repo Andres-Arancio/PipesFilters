@@ -12,28 +12,24 @@ namespace CompAndDel
 
             PictureProvider provider = new PictureProvider();
             IPicture picture = provider.GetPicture(pathtopicture);
-            IPicture finalpicture;
-            
-            /*Codigo de Ejercicio 3
+
             FilterNegative filterNegative = new FilterNegative();
             FilterGreyscale filterGreyscale = new FilterGreyscale();
             HistoryGreyscale historyGreyscale = new HistoryGreyscale();
             HistoryNegative historyNegative = new HistoryNegative();
             TwitterSendGrey twittergrey = new TwitterSendGrey();
             TwitterSendNegative twitternegative = new TwitterSendNegative();
+            FilterConditional conditionalfilter = new FilterConditional();
 
             PipeNull pipeEND = new PipeNull();
-            PipeSerial pipe6 = new PipeSerial(twitternegative, pipeEND);
-            PipeSerial pipe5 = new PipeSerial(historyNegative, pipe6);
-            PipeSerial pipe4 = new PipeSerial(filterNegative, pipe5);
-            PipeSerial pipe3 = new PipeSerial(twittergrey, pipe4);
+            PipeSerial pipe6 = new PipeSerial(historyNegative, pipeEND);
+            PipeSerial pipe5 = new PipeSerial(filterNegative, pipe6);
+            PipeSerial pipe4 = new PipeSerial(twittergrey, pipeEND);
+            PipeCondFork pipe3 = new PipeCondFork(conditionalfilter, pipe4, pipe5);
             PipeSerial pipe2 = new PipeSerial(historyGreyscale, pipe3);
-            PipeSerial pipe1 = new PipeSerial(filterGreyscale, pipe2);*/
+            PipeSerial pipe1 = new PipeSerial(filterGreyscale, pipe2);
 
-            FilterGreyscale filterGreyscale = new FilterGreyscale();
-            FilterConditional filterConditional = new FilterConditional();
-            
-            finalpicture = pipe1.Send(picture);
+            pipe1.Send(picture);
         }
     }
 }
